@@ -1,0 +1,135 @@
+import React, {
+  StyleSheet,
+} from 'react-native';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+  },
+  wrapper: {
+  },
+  scrollViewStyle: {
+    marginBottom: 0,
+    paddingVertical: 2,
+  },
+  backImgView: {
+    width: 30,
+    height: 30,
+    marginLeft: 20,
+  },
+
+  backImgButton: {
+      width: 20,
+      height: 20,
+      resizeMode: 'contain',
+  },
+  titleView: {
+    flexDirection: 'row',
+  },
+  title: {
+    marginLeft: 10,
+    fontFamily: 'AvenirNextLTPro-Bold',
+    fontSize: 20,
+    lineHeight: 20,
+    color: '#000000',
+  },
+  premiumItemContainer: {
+    flex: 1,
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 20,
+    backgroundColor: '#ffffff',
+    borderRadius: 25,
+    alignContent: 'center',
+  },
+  priceLabel: {
+    position: 'absolute',
+    right: 0,
+    height: 40,
+    width: 80,
+    backgroundColor: '#8f86ea',
+    borderBottomLeftRadius: 22,
+    borderTopRightRadius: 22,
+  },
+  priceVIPLabel: {
+    position: 'absolute',
+    right: 0,
+    height: 40,
+    width: 80,
+    backgroundColor: '#ff5b8c',
+    borderBottomLeftRadius: 22,
+    borderTopRightRadius: 22,
+  },
+  priceGoldLabel: {
+    position: 'absolute',
+    right: 0,
+    height: 40,
+    width: 80,
+    backgroundColor: '#00ccd2',
+    borderBottomLeftRadius: 22,
+    borderTopRightRadius: 22,
+  },
+  priceLabelText: {
+    fontFamily: 'AvenirNextLTPro-Regular',
+    fontSize: 16,
+    lineHeight: 16,
+    color: '#ffffff',
+    marginLeft: 10,
+    marginRight:10,
+    marginTop: 13,
+  },
+  mainImage:{
+    left: 0,
+    height: 200,
+    width: '100%',
+    resizeMode: 'contain',
+    marginTop: 45,
+    marginBottom: 70,
+  },
+  subTitle: {
+    fontFamily: 'AvenirNextLTPro-Bold',
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#000000',
+  },
+  description: {
+    fontFamily: 'AvenirNextLTPro-Regular',
+    fontSize: 14,
+    textAlign: 'center',
+    marginTop: 10,
+  },
+  priceButtonView: {
+    marginTop:80,
+    marginBottom: 30,
+    backgroundColor: '#8f86ea',
+    marginLeft: 60,
+    marginRight: 60,
+    borderRadius: 20,
+  },
+  priceVIPButtonView: {
+    marginTop:80,
+    marginBottom: 30,
+    backgroundColor: '#ff5b8c',
+    marginLeft: 60,
+    marginRight: 60,
+    borderRadius: 20,
+  },
+  priceGoldButtonView: {
+    marginTop:80,
+    marginBottom: 30,
+    backgroundColor: '#00ccd2',
+    marginLeft: 60,
+    marginRight: 60,
+    borderRadius: 20,
+  },
+  priceButtonText: {
+    fontFamily: 'AvenirNextLTPro-Regular',
+    fontSize: 16,
+    lineHeight: 16,
+    color: '#ffffff',
+    textAlign: 'center',
+    margin: 10,
+    marginTop: 13,
+  }
+});

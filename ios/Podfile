@@ -1,0 +1,91 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'BNBjob' do
+  # React Native
+  rn_path = '../node_modules/react-native'
+  rn_maps_path = '../node_modules/react-native-maps'
+
+  pod 'yoga', :path => "#{rn_path}/ReactCommon/yoga/Yoga.podspec"
+  pod 'React', path: "#{rn_path}", :subspecs => [    
+    'Core',
+    'CxxBridge',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket',
+    'DevSupport'
+  ]
+  pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"
+  pod 'glog', :podspec => "#{rn_path}/third-party-podspecs/glog.podspec"
+  pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+  
+  # Required by Google Map, ignore if you use Apple Map
+  pod 'GoogleMaps', '2.5.0'
+  pod 'Google-Maps-iOS-Utils', '2.1.0'
+  pod 'GoogleUtilities', '5.3.7'
+  pod 'GoogleAppMeasurement', '5.4'
+
+  pod 'react-native-maps', path: rn_maps_path
+  pod 'react-native-google-maps', path: rn_maps_path # <~~ if you need GoogleMaps support on iOS
+  # FaceBook
+  pod 'FBSDKCoreKit', '~> 4.40.0'
+  pod 'FBSDKLoginKit', '~> 4.40.0'
+  pod 'FBSDKShareKit', '~> 4.40.0'
+
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
+  pod 'react-native-agora', :path => '../node_modules/react-native-agora'
+
+  pod 'react-native-document-picker', :path => '../node_modules/react-native-document-picker'
+
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
+  pod 'react-native-fetch-blob', :path => '../node_modules/react-native-fetch-blob'
+
+  pod 'RNIap', :path => '../node_modules/react-native-iap'
+
+  target 'BNBjobTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'BNBjob-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for BNBjob-tvOS
+
+  target 'BNBjob-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+      if target.name == "react-native-google-maps"
+          target.build_configurations.each do |config|
+              config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
+          end
+      end
+      if target.name == "React"
+        target.remove_from_project
+      end
+      
+      targets_to_ignore = %w(React yoga)
+      
+      if targets_to_ignore.include? target.name
+        target.remove_from_project
+      end
+  end
+end
